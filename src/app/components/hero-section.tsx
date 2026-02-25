@@ -1,5 +1,6 @@
 import { IndigenousPattern } from "./indigenous-pattern";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import cumbalImg from "../../assets/laguna.jpg";
 
 export function HeroSection() {
   return (
@@ -10,8 +11,8 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
-          src="src\assets\7354-14_Laguna_de_la_Bolsa(Cumbal).jpg"
-          alt="Indigenous traditional patterns"
+          src={cumbalImg}
+          alt="Laguna de la Bolsa, Cumbal"
           className="w-full h-full object-cover"
         />
         <div
