@@ -7,7 +7,7 @@ import { ActivityModal } from "./activity-modal";
 import cumbalImg from "../../assets/laguna.jpg";
 
 import GuardianesDelAgua from "../../assets/Guardianes del agua.jpeg";
-import ExploradoresDeCumbal from "../../assets/Exploradores-de-Cumbal.jpeg";
+import ExploradoresDeCumbal from "../../assets/Exploradores-de-cumbal.jpeg";
 import Shagra from "../../assets/shagra.jpeg";
 import Restauracion from "../../assets/restauración.jpeg";
 import Lectoescritura from "../../assets/lectoescritura.jpeg";
