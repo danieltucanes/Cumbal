@@ -33,7 +33,7 @@ export function CosmologiaSection() {
           >
             Cosmología e Identidad
           </h2>
-          <DecorativeBorder className="mt-6" style={{ color: "var(--ochre)" }} />
+          <DecorativeBorder className="mt-6" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
