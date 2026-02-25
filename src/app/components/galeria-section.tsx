@@ -4,7 +4,7 @@ import { CalendarDays, Camera, Sparkles, Users } from "lucide-react";
 import { AnimatedCounter } from "./ui/contador";
 
 import GuardianesDelAgua from "../../assets/Guardianes del agua.jpeg";
-import ExploradoresDeCumbal from "../../assets/Exploradores-de-Cumbal.jpeg";
+import ExploradoresDeCumbal from "../../assets/Exploradores-de-cumbal.jpeg";
 import Shagra from "../../assets/shagra.jpeg";
 import Restauracion from "../../assets/restauración.jpeg";
 import Lectoescritura from "../../assets/lectoescritura.jpeg";
