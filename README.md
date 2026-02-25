@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
   # Cultural Blog Web Page Design
 
@@ -9,3 +10,7 @@
 
   Run `npm run dev` to start the development server.
   
+=======
+# Cumbal
+This web recolects and shares the culture and activities made along the last two years in the indigenous territory in Cumbal
+>>>>>>> 45ddc50929aeb54bdaa523aac22b3eaf9794223f
