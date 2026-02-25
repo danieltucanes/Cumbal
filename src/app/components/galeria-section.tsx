@@ -3,65 +3,79 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { CalendarDays, Camera, Sparkles, Users } from "lucide-react";
 import { AnimatedCounter } from "./ui/contador";
 
+import GuardianesDelAgua from "../../assets/Guardianes del agua.jpeg";
+import ExploradoresDeCumbal from "../../assets/Exploradores-de-Cumbal.jpeg";
+import Shagra from "../../assets/shagra.jpeg";
+import Restauracion from "../../assets/restauración.jpeg";
+import Lectoescritura from "../../assets/lectoescritura.jpeg";
+import Matematicas from "../../assets/matematicas.jpeg";
+import Manualidades from "../../assets/manualidades.jpeg";
+import Tuxpaint from "../../assets/tuxpaint.jpeg";
+import Ingles from "../../assets/ingles.jpeg";
+import RestauracionEcologica from "../../assets/restauracion.jpeg";
+import Encuesta from "../../assets/encuesta.jpeg";
+import Alfabetizacion from "../../assets/alfabetizacion.jpeg";
+import Siembra from "../../assets/siembra.jpeg";
+
 const galleryImages = [
   {
     id: 1,
-    src: "src/assets/encuesta.jpeg",
+    src: Encuesta,
     title: "Encuesta a la comunidad",
   },
   {
     id: 2,
-    src: "src/assets/alfabetizacion.jpeg",
+    src: Alfabetizacion,
     title: "Alfabetización Digital",
   },
   {
     id: 3,
-    src: "src/assets/siembra.jpeg",
+    src: Siembra,
     title: "Siembra de Árboles",
   },
   {
     id: 4,
-    src: "src/assets/manualidades.jpeg",
+    src: Manualidades,
     title: "Cerámica Ancestral",
   },
   {
     id: 5,
-    src: "src/assets/Exploradores-de-cumbal.jpeg",
+    src: ExploradoresDeCumbal,
     title: "Actividad: Exploradores de Cumbal",
   },
   {
     id: 6,
-    src: "src/assets/Guardianes del agua.jpeg",
+    src: GuardianesDelAgua,
     title: "Actividad: Guardianes del Agua",
   },
   {
     id: 7,
-    src: "src/assets/ingles.jpeg",
+    src: Ingles,
     title: "Taller Inglés para niños",
   },
   {
     id: 8,
-    src: "src/assets/lectoescritura.jpeg",
+    src: Lectoescritura,
     title: "Taller Lectoescritura",
   },
    {
     id: 9,
-    src: "src/assets/matematicas.jpeg",
+    src: Matematicas,
     title: "Taller Matemáticas",
   },
   {
     id: 10,
-    src: "src/assets/shagra.jpeg",
+    src: Shagra,
     title: "Creación Shagra Estudiantil",
   },
    {
     id: 11,
-    src: "src/assets/tuxpaint.jpeg",
+    src: Tuxpaint,
     title: "Taller TuxPaint",
   },
   {
     id: 12,
-    src: "src/assets/restauración.jpeg",
+    src: RestauracionEcologica,
     title: "Restauración Símbolos Culturales",
   },
 ];

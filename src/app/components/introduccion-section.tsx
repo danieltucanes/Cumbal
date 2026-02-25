@@ -2,6 +2,7 @@ import { DecorativeBorder } from "./indigenous-pattern";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Sparkles, Users } from "lucide-react";
 import { AnimatedCounter } from "./ui/contador";
+import actividades from "../../assets/WhatsApp Image 2026-02-24 at 3.47.36 PM.jpeg"
 
 export function IntroduccionSection() {
   return (
@@ -63,7 +64,7 @@ export function IntroduccionSection() {
               style={{ backgroundColor: "var(--terracotta)" }}
             />
             <ImageWithFallback
-              src="src\assets\WhatsApp Image 2026-02-24 at 3.47.36 PM.jpeg"
+              src={actividades}
               alt="Community unity"
               className="relative rounded-2xl shadow-xl w-full h-[400px] object-cover transition-transform duration-500 ease-out hover:scale-110"
             />

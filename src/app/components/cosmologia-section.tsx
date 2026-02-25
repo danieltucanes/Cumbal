@@ -1,6 +1,9 @@
 import { DecorativeBorder } from "./indigenous-pattern";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Sun, Moon, Star, Sparkles } from "lucide-react";
+import piedraMachines from "../../assets/4526-2_Piedra_Machines - copia.jpg";
+import cumbalImg from "../../assets/laguna.jpg";
+
 
 export function CosmologiaSection() {
   return (
@@ -104,7 +107,7 @@ export function CosmologiaSection() {
           <div className="space-y-6">
             <div className="relative">
               <ImageWithFallback
-                src="src/assets/4526-2_Piedra_Machines - copia.jpg"
+                src={piedraMachines}
                 alt="Spiritual cosmos and stars"
                 className="rounded-2xl shadow-2xl w-full h-[350px] object-cover transition-transform duration-500 ease-out hover:scale-110"
               />
