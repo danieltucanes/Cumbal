@@ -8,7 +8,7 @@ import SIALEMLogo from "../../assets/sialen.png";
 import YourubeLogo from "../../assets/Youtube_logo.png";
 import PastosOrnament  from "../../libs/pastos-pattern.tsx";
 import CanvaLogo from "../../assets/Canva-logo.png";
-import CapcutLogo from "../../assets/Capcut-logo.png";
+import CapcutLogo from "../../assets/CapCut-logo.png";
 import WordLogo from "../../assets/Word-logo.png";
 import { fadeUpContainer, fadeUpItem } from "../../libs/animations.ts";
 import { motion } from "framer-motion";
