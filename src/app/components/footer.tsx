@@ -44,7 +44,7 @@ export function Footer() {
                 <Mail size={18} style={{ color: "var(--ochre)" }} className="mt-1" />
                 <div>
                   <p className="text-sm" style={{ color: "var(--beige)" }}>
-                    danieltucanes23@gmail.com.co
+                    danieltucanes23@gmail.com
                   </p>
                 </div>
               </div>
