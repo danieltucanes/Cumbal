@@ -1,6 +1,6 @@
 import { DecorativeBorder } from "./indigenous-pattern";
 import { Map, Palette, Gamepad2, Languages, Laptop, Sparkles, Database } from "lucide-react";
-import GComprisLogo from "../../assets/GCompris-logo.png";
+import GComprisLogo from "../../assets/Gcompris-logo.png";
 import GoogleEarth from "../../assets/GoogleEarthIcon.png";
 import TuxPaintLogo from "../../assets/TuxPaint-logo.png";
 import DuolingoLogo from "../../assets/Duolingo-logo.png";
