@@ -121,8 +121,6 @@ Adicionalmente, el proyecto contempló acciones para la mejora de los espacios f
           {/* Image */}
           <div className="relative">
             {/* Background frame (softer + cleaner) */}
-           
-
             <ImageWithFallback
               src={actividades}
               alt="Actividades comunitarias"

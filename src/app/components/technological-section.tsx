@@ -156,12 +156,13 @@ export function TecnologiaSection() {
           {/* Tools */}
           <div >
             <div className="flex items-center gap-3 mb-6">
-              <div
+              <motion.div
+                variants={fadeUpItem}
                 className="w-11 h-11 rounded-xl flex items-center justify-center"
                 style={{ backgroundColor: "rgba(200, 90, 62, 0.14)", color: "var(--terracotta-dark)" }}
               >
-                <Laptop size={22} />
-              </div>
+                   <Laptop size={22} />
+              </motion.div>
               <motion.h3 
               variants={fadeUpItem}
               className="text-2xl font-semibold" 
@@ -177,8 +178,8 @@ export function TecnologiaSection() {
                 {tools.map((t) => (
                   <div
                     key={t.title}
-                    className="rounded-2xl p-3 border shadow-sm transition hover:-translate-y-1 hover:shadow-lg  h-full w-70"
-                    style={{
+                      className="rounded-2xl p-3 border shadow-sm transition hover:-translate-y-1 hover:shadow-lg h-full"                    
+                      style={{
                       backgroundColor: "rgba(255, 255, 255, 0.78)",
                       borderColor: "rgba(0,0,0,0.08)",
                     }}
@@ -230,12 +231,13 @@ export function TecnologiaSection() {
           {/* Steps */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div
+              <motion.div
+                variants={fadeUpItem}
                 className="w-11 h-11 rounded-xl flex items-center justify-center"
                 style={{ backgroundColor: "rgba(61, 92, 79, 0.14)", color: "var(--deep-green-dark)" }}
               >
                 <Sparkles size={22} />
-              </div>
+              </motion.div>
               <motion.h3 
               variants={fadeUpItem}
               className="text-2xl font-semibold" 
@@ -282,7 +284,9 @@ export function TecnologiaSection() {
         </div >
         
           
-         <div className="text-center mb-10 ease-in-out">
+         <motion.div
+              variants={fadeUpItem} 
+              className="text-center mb-10 ease-in-out">
            {/* Reflection quote */}
           <div
             className="mt-6 max-w-2xl mx-auto rounded-2xl p-5 border "
@@ -300,7 +304,7 @@ export function TecnologiaSection() {
             </p>
           </div>
 
-         </div>
+         </motion.div>
          
        
       </div>

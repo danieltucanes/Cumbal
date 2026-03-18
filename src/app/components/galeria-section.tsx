@@ -133,11 +133,7 @@ const galleryImages = [
 
 export function GaleriaSection() {
   return (
-    <motion.section 
-     variants={fadeUpContainer}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+    <section 
       id="galeria" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <motion.div variants={fadeUpItem} className="w-full relative z-10">
@@ -159,52 +155,48 @@ export function GaleriaSection() {
           </motion.p>
         </div>
 
-        {/* Gallery Grid */}
-        <motion.div variants={fadeUpItem} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Gallery Grid  motion.div variants={fadeUpItem} */}
+        < div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {galleryImages.map((image, index) => (
-            <div
-              key={image.id}
-              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
-              style={{
-                border: "3px solid var(--sand)",
-                aspectRatio: index === 0 || index === 7 ? "1/1.3" : "1/1",
-              }}
-            >
-              <ImageWithFallback
+  <div
+    key={image.id}
+    className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+    style={{
+      border: "3px solid var(--sand)",
+      aspectRatio: index === 0 || index === 7 ? "1 / 1.3" : "1 / 1",
+    }}
+  >
+   <ImageWithFallback
                 src={image.src}
                 alt={image.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
 
-              {/* Overlay */}
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
-              >
-                <div className="p-4 w-full">
-                  <h3 className="text-white text-lg">{image.title}</h3>
-                  <div className="flex gap-1 mt-2">
-                    {[...Array(3)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="w-1.5 h-1.5 rounded-full"
-                        style={{ backgroundColor: "var(--ochre)" }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative Corner */}
-              <div
-                className="absolute top-0 right-0 w-12 h-12"
-                style={{
-                  background: `linear-gradient(135deg, transparent 50%, var(--terracotta) 50%)`,
-                  opacity: 0.3,
-                }}
-              />
-            </div>
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+      <div className="p-4 w-full">
+        <h3 className="text-white text-lg">{image.title}</h3>
+        <div className="flex gap-1 mt-2">
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: "var(--ochre)" }}
+            />
           ))}
-        </motion.div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      className="absolute top-0 right-0 w-12 h-12"
+      style={{
+        background: `linear-gradient(135deg, transparent 50%, var(--terracotta) 50%)`,
+        opacity: 0.3,
+      }}
+    />
+  </div>
+))}
+        </div>
 
         {/* Stats Section */}
         <motion.section
@@ -270,6 +262,6 @@ export function GaleriaSection() {
           </div>
         </motion.section>
       </div>
-    </motion.section>
+    </section>
   );
 }
