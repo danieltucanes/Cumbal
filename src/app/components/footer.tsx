@@ -20,7 +20,10 @@ export function Footer() {
               Sobre Este Proyecto
             </h3>
             <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--beige)" }}>
-              Este blog documenta dos años de trabajo colaborativo con la comunidad indígena,
+              Este blog documenta dos años de trabajo colaborativo con la comunidad indígena, especialmente
+              con el Centro Educativo San José, utilizando herramientas tecnológicas para apoyar el proceso de 
+              aprendizaje, memoria y fortalecimiento de la identidad cultural. 
+              A través de esta plataforma, buscamos compartir las experiencias, aprendizajes y reflexiones construidas en el territorio,
               honrando su cultura, preservando su memoria y celebrando su identidad.
             </p>
             <div className="flex items-center gap-2" style={{ color: "var(--ochre)" }}>
@@ -41,7 +44,7 @@ export function Footer() {
                 <Mail size={18} style={{ color: "var(--ochre)" }} className="mt-1" />
                 <div>
                   <p className="text-sm" style={{ color: "var(--beige)" }}>
-                    contacto@raicesancestrales.org
+                    danieltucanes23@gmail.com.co
                   </p>
                 </div>
               </div>
@@ -49,7 +52,7 @@ export function Footer() {
                 <MapPin size={18} style={{ color: "var(--ochre)" }} className="mt-1" />
                 <div>
                   <p className="text-sm" style={{ color: "var(--beige)" }}>
-                    Territorio Ancestral
+                    Cumbal, Nariño, Colombia
                   </p>
                 </div>
               </div>
@@ -62,8 +65,8 @@ export function Footer() {
               Agradecimientos
             </h3>
             <p className="text-sm leading-relaxed" style={{ color: "var(--beige)" }}>
-              A los ancianos y ancianas que comparten su sabiduría, a las familias que abren
-              sus hogares, y a toda la comunidad que hace posible este trabajo de memoria y dignidad.
+              A estudiantes y profesores que brindaron los espacios de aprendizaje
+               y a toda la comunidad que hace posible este trabajo de memoria y dignidad.
             </p>
           </div>
         </div>
@@ -86,7 +89,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="text-center">
           <p className="text-sm" style={{ color: "var(--beige)" }}>
-            © 2026 Raíces Ancestrales. Proyecto de Documentación Cultural.
+            © 2026 Cumbal: Identidad, Territorio y Aprendizaje. Proyecto de Documentación Cultural.
           </p>
           <p className="text-xs mt-2" style={{ color: "var(--sand)" }}>
             Todo el contenido se comparte con el consentimiento y colaboración de la comunidad.

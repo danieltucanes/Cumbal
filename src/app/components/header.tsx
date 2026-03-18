@@ -17,21 +17,22 @@ export function Header() {
     { id: "introduccion", label: "Introducción" },
     { id: "historia", label: "Cumbal" },
     { id: "cosmologia", label: "Cosmología e Identidad" },
+    { id: "tecnologia", label: "Herramientas Tecnológicas" },
     { id: "actividades", label: "Actividades" },
     { id: "galeria", label: "Galería" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-sm shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo / Brand */}
           <button
             onClick={() => scrollToSection("inicio")}
             className="text-xl font-semibold tracking-wide"
-            style={{ color: "var(--terracotta-dark)" }}
+            style={{ color: "var(--brown)" }}
           >
-            Cumbal: Identidad, Territorio y Aprendizaje
+            Identidad, Territorio y Aprendizaje
           </button>
 
           {/* Desktop Navigation */}

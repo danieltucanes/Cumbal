@@ -3,15 +3,25 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Sun, Moon, Star, Sparkles } from "lucide-react";
 import piedraMachines from "../../assets/4526-2_Piedra_Machines - copia.jpg";
 import cumbalImg from "../../assets/laguna.jpg";
-
+import PastosOrnament  from "../../libs/pastos-pattern.tsx";
+import { motion } from "framer-motion";
+import { fadeUpContainer, fadeUpItem } from "../../libs/animations";
 
 export function CosmologiaSection() {
   return (
-    <section
+    <motion.section
+      variants={fadeUpContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
       id="cosmologia"
       className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       style={{ backgroundColor: "var(--deep-green-dark)" }}
     >
+         <motion.div variants={fadeUpItem} className="w-full relative z-10">
+              <PastosOrnament  className="my-4" />
+            </motion.div>
+
       {/* Starry Background Effect */}
       <div className="absolute inset-0 opacity-20">
         {[...Array(50)].map((_, i) => (
@@ -29,17 +39,22 @@ export function CosmologiaSection() {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
+         
         <div className="text-center mb-12">
-          <h2
-            className="text-3xl sm:text-4xl mb-4 inline-block"
+          <motion.h2 variants={fadeUpItem}
+            className="font-display text-3xl sm:text-4xl mb-4 inline-block"
             style={{ color: "var(--beige-light)" }}
           >
             Cosmología e Identidad
-          </h2>
-          <DecorativeBorder className="mt-6" />
+          </motion.h2>
+
+          <motion.div variants={fadeUpItem}>
+            <DecorativeBorder className="mt-6" />
+          </motion.div>
+
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <motion.div variants={fadeUpItem} className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Left Column - Spiritual Concepts */}
           <div className="space-y-8">
             <p className="text-lg leading-relaxed" style={{ color: "var(--beige)" }}>
@@ -50,7 +65,7 @@ export function CosmologiaSection() {
 
             <div className="grid grid-cols-2 gap-6">
               <div
-                className="p-6 rounded-xl backdrop-blur-sm transition-transform duration-500 ease-out hover:scale-110"
+                className="p-6 rounded-xl backdrop-blur-sm transition-transform duration-500 ease-out hover:scale-103"
                 style={{ backgroundColor: "rgba(212, 165, 116, 0.1)", border: "2px solid var(--ochre)" }}
               >
                 <Sun size={40} className="mb-3 " style={{ color: "var(--ochre)" }} />
@@ -63,7 +78,7 @@ export function CosmologiaSection() {
               </div>
 
               <div
-                className="p-6 rounded-xl backdrop-blur-sm transition-transform duration-500 ease-out hover:scale-110"
+                className="p-6 rounded-xl backdrop-blur-sm transition-transform duration-500 ease-out hover:scale-103"
                 style={{ backgroundColor: "rgba(212, 165, 116, 0.1)", border: "2px solid var(--ochre)" }}
               >
                 <Moon size={40} className="mb-3" style={{ color: "var(--ochre)" }} />
@@ -76,7 +91,7 @@ export function CosmologiaSection() {
               </div>
 
               <div
-                className="p-6 rounded-xl backdrop-blur-sm transition-transform duration-500 ease-out hover:scale-110"
+                className="p-6 rounded-xl backdrop-blur-sm transition-transform duration-500 ease-out hover:scale-103"
                 style={{ backgroundColor: "rgba(212, 165, 116, 0.1)", border: "2px solid var(--ochre)" }}
               >
                 <Star size={40} className="mb-3" style={{ color: "var(--ochre)" }} />
@@ -89,7 +104,7 @@ export function CosmologiaSection() {
               </div>
 
               <div
-                className="p-6 rounded-xl backdrop-blur-sm transition-transform duration-500 ease-out hover:scale-110"
+                className="p-6 rounded-xl backdrop-blur-sm transition-transform duration-500 ease-out hover:scale-103"
                 style={{ backgroundColor: "rgba(212, 165, 116, 0.1)", border: "2px solid var(--ochre)" }}
               >
                 <Sparkles size={40} className="mb-3" style={{ color: "var(--ochre)" }} />
@@ -109,7 +124,7 @@ export function CosmologiaSection() {
               <ImageWithFallback
                 src={piedraMachines}
                 alt="Spiritual cosmos and stars"
-                className="rounded-2xl shadow-2xl w-full h-[350px] object-cover transition-transform duration-500 ease-out hover:scale-110"
+                className="rounded-2xl shadow-2xl w-full h-[350px] object-cover transition-transform duration-500 ease-out hover:scale-103"
               />
                <a
                 href={"https://www.google.com/maps/search/?api=1&query=Piedra%20Machines%20de%20Cumbal%2C%20Nari%C3%B1o%2C%20Colombia"}
@@ -126,7 +141,7 @@ export function CosmologiaSection() {
               className="p-8 rounded-xl"
               style={{ backgroundColor: "rgba(200, 90, 62, 0.15)", borderLeft: "4px solid var(--terracotta)" }}
             >
-              <p className="text-lg italic leading-relaxed mb-4" style={{ color: "var(--beige-light)" }}>
+              <p className="text-lg italic leading-relaxed mb-4 leading-[1.9] max-w-lg"  style={{ color: "var(--beige-light)" }} >
                 "“La cosmovisión del pueblo Pasto entiende el territorio como un ser vivo donde montañas como el Volcán Cumbal y el Volcán Chiles, y lugares sagrados como la Laguna de la Bolsa y la Piedra de Machines, guardan espíritus ancestrales que exigen equilibrio, respeto y armonía entre la comunidad, la naturaleza y lo espiritual.”."
               </p>
               <p className="text-sm" style={{ color: "var(--ochre)" }}>
@@ -134,26 +149,26 @@ export function CosmologiaSection() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
               
         {/* Identity Elements */}
-        <div
-          className="p-8 rounded-2xl backdrop-blur-sm"
+        <motion.div variants={fadeUpItem}
+          className="p-8 rounded-2xl backdrop-blur-sm " 
           style={{ backgroundColor: "rgba(232, 220, 200, 0.05)" }}
-        >
-          <h3 className="text-2xl mb-8 text-center" style={{ color: "var(--beige-light)" }}>
+          >
+          <h3 className="font-display text-2xl mb-8 text-center" style={{ color: "var(--beige-light)" }}>
             Pilares de Nuestra Identidad
           </h3>
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-4 gap-6 ">
             {[
               { title: "Lengua", desc: "Código ancestral de pensamiento" },
               { title: "Territorio", desc: "Espacio sagrado de vida" },
               { title: "Ceremonias", desc: "Conexión con lo espiritual" },
               { title: "Comunidad", desc: "Fuerza colectiva y unión" },
             ].map((item, idx) => (
-              <div key={idx} className="text-center">
+              <div key={idx} className="text-center hover:-translate-y-1 transition">
                 <div
-                  className="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center"
+                  className="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center "
                   style={{ backgroundColor: "var(--ochre)" }}
                 >
                   <span className="text-2xl" style={{ color: "var(--deep-green-dark)" }}>
@@ -169,8 +184,8 @@ export function CosmologiaSection() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

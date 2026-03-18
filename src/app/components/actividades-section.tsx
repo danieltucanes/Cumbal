@@ -1,9 +1,6 @@
-import { useRef, useState } from "react";
-import Slider from "react-slick";
-import { DecorativeBorder } from "./indigenous-pattern";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { ChevronLeft, ChevronRight, Calendar } from "lucide-react";
-import { ActivityModal } from "./activity-modal";
+
+
+
 import cumbalImg from "../../assets/laguna.jpg";
 
 import GuardianesDelAgua from "../../assets/Guardianes del agua.jpeg";
@@ -19,6 +16,10 @@ import RestauracionEcologica from "../../assets/restauracion.jpeg";
 import Encuesta from "../../assets/encuesta.jpeg";
 import Alfabetizacion from "../../assets/alfabetizacion.jpeg";
 import Siembra from "../../assets/siembra.jpeg";
+import PastosOrnament  from "../../libs/pastos-pattern.tsx";
+import { fadeUpContainer, fadeUpItem } from "../../libs/animations.ts";
+import { motion } from "framer-motion";
+
 
 const activities = [
   {
@@ -71,7 +72,7 @@ const activities = [
     participants: "Estudiantes del Centro educativo San José de Cumbal",
     location: "Centro Educativo San José",
   },
-   {
+  {
     id: 6,
     title: "Taller de Lectoescritura y Matemáticas con el Software GCompis",
     description: "Esta actividad se realizó utilizando el software GCompis para reforzar sus habilidades en lectoescritura y matemáticas.",
@@ -81,7 +82,7 @@ const activities = [
     participants: "Estudiantes del Centro educativo San José de Cumbal",
     location: "Centro Educativo San José",
   },
-   {
+  {
     id: 7,
     title: "Taller de Manualidades con Materiales Reciclados",
     description: "En esta actividad, se llevó a cabo un taller de manualidades donde los niños utilizaron materiales reciclados para crear portalápices personalizados.",
@@ -91,7 +92,7 @@ const activities = [
     participants: "Estudiantes del Centro educativo San José de Cumbal",
     location: "Centro Educativo San José",
   },
-   {
+  {
     id: 8,
     title: "Taller de Dibujo y Exploración con Tuxpaint",
     description: "En esta actividad, se utilizó la herramienta Tuxpaint para incentivar la creatividad de los niños a través del dibujo digital.",
@@ -101,7 +102,7 @@ const activities = [
     participants: "Estudiantes del Centro educativo San José de Cumbal",
     location: "Centro Educativo San José",
   },
-   {
+  {
     id: 9,
     title: "Taller de Introducción al Inglés con Duolingo",
     description: "En esta actividad, se utilizó la herramienta Duolingo para introducir a los niños a las bases del idioma inglés de una manera divertida e interactiva",
@@ -111,15 +112,15 @@ const activities = [
     participants: "Estudiantes del Centro educativo San José de Cumbal",
     location: "Centro Educativo San José",
   },
-    {
+  {
     id: 10,
     title: "Restauración ecológica",
     description: "Se organizó una jornada de reforestación en la vereda Tasmag, sector Guel, como parte de un esfuerzo por contribuir a la conservación ambiental",
     detailedDescription: "Los estudiantes, junto con miembros de la comunidad, participamos activamente en la plantación de árboles en áreas identificadas como altamente deforestadas. Cada participante recibió un árbol para plantar Al final de la jornada, se resaltó el compromiso de realizar seguimiento a los árboles plantados para garantizar su crecimiento y sostenibilidad a largo plazo. ",
     date: "Julio 2024",
     image: RestauracionEcologica,
-    participants: "Estudiantes del Centro educativo San José de Cumbal",
-    location: "Centro Educativo San José",
+    participants: "Estudiantes Centro de la Juventud",
+    location: "Vereda Tasmag",
   },
   {
     id: 11,
@@ -150,91 +151,126 @@ const activities = [
     image: Encuesta,
     participants: "Habitantes de la comunidad indígena de Cumbal",
     location: "Comunidad indígena de Cumbal",
-  }
+  },
+  
 ];
 
-export function ActividadesSection() {
-  const sliderRef = useRef<Slider>(null);
-  const [selectedActivity, setSelectedActivity] = useState<typeof activities[0] | null>(null);
+import { useRef, useState, useEffect, useCallback  } from "react";
+import { ChevronLeft, ChevronRight, Calendar } from "lucide-react";
+import { DecorativeBorder } from "./indigenous-pattern";
+import { ActivityModal } from "./activity-modal";
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    pauseOnHover: true,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
+export function ActividadesSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedActivity, setSelectedActivity] = useState<typeof activities[0] | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const cardWidth = container.querySelector("div")?.offsetWidth ?? 0;
+    container.scrollBy({ left: direction === "right" ? cardWidth : -cardWidth, behavior: "smooth" });
   };
 
+  const autoScroll = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const cardWidth = container.querySelector("div")?.offsetWidth ?? 0;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
+    // Si llegó al final, vuelve al inicio
+    if (container.scrollLeft + cardWidth >= maxScroll) {
+      container.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      container.scrollBy({ left: cardWidth, behavior: "smooth" });
+    }
+  }, []);
+
+  const startAutoScroll = useCallback(() => {
+    intervalRef.current = setInterval(autoScroll, 3000);
+  }, [autoScroll]);
+
+  const stopAutoScroll = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+
+  useEffect(() => {
+    startAutoScroll();
+    return () => stopAutoScroll(); // limpia al desmontar
+  }, [startAutoScroll]);
   return (
-    <section
+    <motion.section 
+     variants={fadeUpContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
       id="actividades"
       className="py-20 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: "var(--beige-light)" }}
-    >
+      style={{ backgroundColor: "var(--beige-light)" }}>
+
+      <motion.div variants={fadeUpItem} className="w-full relative z-10">
+              <PastosOrnament  className="my-4" />
+            </motion.div>
+
+
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2
-            className="text-3xl sm:text-4xl mb-4 inline-block"
-            style={{ color: "var(--terracotta-dark)" }}
-          >
-            Últimas Actividades
-          </h2>
-          <DecorativeBorder className="mt-6" />
-          <p className="mt-6 text-lg max-w-2xl mx-auto" style={{ color: "var(--brown)" }}>
-            Un recorrido por las actividades más recientes realizadas con la comunidad
-          </p>
+
+        {/* Header igual que antes */}
+        <div >
+          <div className="text-center mb-12">
+            <motion.h2 className="font-display text-3xl sm:text-4xl mb-4 inline-block" style={{ color: "var(--terracotta-dark)" }} variants={fadeUpItem}>
+              Actividades
+            </motion.h2>
+             <motion.div variants={fadeUpItem}>
+            <DecorativeBorder className="mt-6" />
+          </motion.div>
+            <motion.p className="mt-6 text-lg max-w-2xl mx-auto" style={{ color: "var(--brown)" }} variants={fadeUpItem}>
+              Un recorrido por las actividades más recientes realizadas con la comunidad
+            </motion.p>
+          </div>
         </div>
 
         <div className="relative">
-          {/* Navigation Buttons */}
+          {/* Botones — ocultos en móvil */}
           <button
-            onClick={() => sliderRef.current?.slickPrev()}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform -ml-6"
+            onClick={() => scroll("left")}
+            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center shadow-lg hover:scale-110 transition-transform -ml-6"
             style={{ backgroundColor: "var(--terracotta)", color: "white" }}
           >
             <ChevronLeft size={24} />
           </button>
 
           <button
-            onClick={() => sliderRef.current?.slickNext()}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform -mr-6"
+            onClick={() => scroll("right")}
+            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center shadow-lg hover:scale-110 transition-transform -mr-6"
             style={{ backgroundColor: "var(--terracotta)", color: "white" }}
           >
             <ChevronRight size={24} />
           </button>
 
-          {/* Carousel */}
-          <Slider ref={sliderRef} {...settings}>
+          {/* Contenedor scroll snap */}
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto gap-6 pb-4 scroll-smooth"
+            style={{ scrollSnapType: "x mandatory", scrollbarWidth: "none", msOverflowStyle: "none" }}
+            onMouseEnter={stopAutoScroll}      // pausa al hacer hover
+            onMouseLeave={startAutoScroll}     // reanuda al salir
+            onTouchStart={stopAutoScroll}      // pausa al tocar en móvil
+            onTouchEnd={startAutoScroll}       // reanuda al soltar
+          >
             {activities.map((activity) => (
-              <div key={activity.id} className="px-3">
+              <div
+                key={activity.id}
+                className="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                style={{ scrollSnapAlign: "start" }}
+              >
                 <div
-                  className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
-                  style={{
-                    backgroundColor: "white",
-                    border: "3px solid var(--sand)",
-                  }}
+                  className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer h-full"
+                  style={{ backgroundColor: "white", border: "3px solid var(--sand)" }}
                   onClick={() => setSelectedActivity(activity)}
                 >
                   <div className="relative h-56 overflow-hidden">
-                    <ImageWithFallback
+                    <img
                       src={activity.image}
                       alt={activity.title}
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
@@ -255,24 +291,13 @@ export function ActividadesSection() {
                     <p className="text-sm leading-relaxed" style={{ color: "var(--brown)" }}>
                       {activity.description}
                     </p>
-
-                    {/* Decorative border at bottom */}
-                    <div
-                      className="mt-4 pt-4 border-t flex justify-center"
-                      style={{ borderColor: "var(--sand)" }}
-                    >
+                    <div className="mt-4 pt-4 border-t flex justify-center" style={{ borderColor: "var(--sand)" }}>
                       <div className="flex gap-1">
                         {[...Array(3)].map((_, i) => (
-                          <div
-                            key={i}
-                            className="w-2 h-2 rounded-full"
-                            style={{ backgroundColor: "var(--terracotta)" }}
-                          />
+                          <div key={i} className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--terracotta)" }} />
                         ))}
                       </div>
                     </div>
-
-                    {/* Click to view more indicator */}
                     <p className="text-xs text-center mt-3" style={{ color: "var(--ochre)" }}>
                       Click para ver más
                     </p>
@@ -280,17 +305,13 @@ export function ActividadesSection() {
                 </div>
               </div>
             ))}
-          </Slider>
+          </div>
         </div>
       </div>
 
-      {/* Modal */}
       {selectedActivity && (
-        <ActivityModal
-          activity={selectedActivity}
-          onClose={() => setSelectedActivity(null)}
-        />
+        <ActivityModal activity={selectedActivity} onClose={() => setSelectedActivity(null)} />
       )}
-    </section>
+    </motion.section>
   );
 }

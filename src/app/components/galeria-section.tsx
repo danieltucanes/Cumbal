@@ -1,8 +1,9 @@
 import { DecorativeBorder } from "./indigenous-pattern";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { CalendarDays, Camera, Sparkles, Users } from "lucide-react";
+import { CalendarDays, Camera, Computer, Sparkles, Users } from "lucide-react";
 import { AnimatedCounter } from "./ui/contador";
-
+import { motion } from "framer-motion";
+import { fadeUpContainer, fadeUpItem } from "../../libs/animations";
 import GuardianesDelAgua from "../../assets/Guardianes del agua.jpeg";
 import ExploradoresDeCumbal from "../../assets/Exploradores-de-cumbal.jpeg";
 import Shagra from "../../assets/shagra.jpeg";
@@ -16,6 +17,16 @@ import RestauracionEcologica from "../../assets/restauracion.jpeg";
 import Encuesta from "../../assets/encuesta.jpeg";
 import Alfabetizacion from "../../assets/alfabetizacion.jpeg";
 import Siembra from "../../assets/siembra.jpeg";
+import PastosOrnament  from "../../libs/pastos-pattern.tsx";
+import actividades from "../../assets/WhatsApp Image 2026-02-24 at 3.47.36 PM.jpeg";
+import AlimentacionSana from "../../assets/Alimentación Sana.jpeg";
+import Encuentas from "../../assets/Encuestas.jpeg"
+import ExplorandTerritorio from "../../assets/explorando_territorio.jpeg";
+import Manualidades2 from "../../assets/manualidades_2.jpeg"
+import Clase from "../../assets/Lectoescritura_clase.jpeg"; 
+import Juegos from "../../assets/Explorando territorio juegos.jpeg"; 
+import Contenido from "../../assets/Visualización contenido audiovisual.jpeg"; 
+
 
 const galleryImages = [
   {
@@ -76,29 +87,80 @@ const galleryImages = [
   {
     id: 12,
     src: RestauracionEcologica,
+    title: "Restauración Ecológica",
+  },
+   {
+    id: 13,
+    src: Restauracion,
     title: "Restauración Símbolos Culturales",
   },
+   {
+    id: 14,
+    src: AlimentacionSana,
+    title: "Alimentación Sana",
+  },
+  {
+    id: 15,
+    src: Encuentas,
+    title: "Encuesta a la comunidad",
+  },
+  {
+    id: 16,
+    src: ExplorandTerritorio,
+    title: "Exploradores de Cumbal",
+  },
+  {
+    id: 17,
+    src: Manualidades2,
+    title: "Manualidades con material reciclado",
+  },
+  {
+    id: 18,
+    src: Clase,
+    title: "Taller Lectoescritura",
+  },
+   {
+    id: 19,
+    src: Juegos,
+    title: "Taller Matemáticas",
+  },
+   {
+    id: 20,
+    src: Contenido,
+    title: "Aprendiendo con material audiovisual",
+  }
 ];
 
 export function GaleriaSection() {
   return (
-    <section id="galeria" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <motion.section 
+     variants={fadeUpContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      id="galeria" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
+        <motion.div variants={fadeUpItem} className="w-full relative z-10">
+                <PastosOrnament  className="my-4" />
+              </motion.div>
         <div className="text-center mb-12">
-          <h2
-            className="text-3xl sm:text-4xl mb-4 inline-block"
+          <motion.h2
+            className="font-display text-3xl sm:text-4xl mb-4 inline-block"
             style={{ color: "var(--terracotta-dark)" }}
+            variants={fadeUpItem}
           >
             Galería
-          </h2>
-          <DecorativeBorder className="mt-6" />
-          <p className="mt-6 text-lg max-w-2xl mx-auto" style={{ color: "var(--brown)" }}>
+          </motion.h2>
+          <motion.div variants={fadeUpItem}>
+            <DecorativeBorder className="mt-6" />
+          </motion.div>
+          <motion.p className="mt-6 text-lg max-w-2xl mx-auto" style={{ color: "var(--brown)" }} variants={fadeUpItem}>
             Momentos capturados de nuestra vida comunitaria y prácticas culturales
-          </p>
+          </motion.p>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div variants={fadeUpItem} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {galleryImages.map((image, index) => (
             <div
               key={image.id}
@@ -142,50 +204,72 @@ export function GaleriaSection() {
               />
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Stats Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-10">Impacto</h2>
+        <motion.section
+          variants={fadeUpContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="py-16 px-4 sm:px-6 lg:px-8 bg-white"
+        >
+          <div className="max-w-6xl mx-auto">
+            <motion.h2
+              className="text-3xl font-semibold mb-10"
+              variants={fadeUpItem}
+            >
+              Impacto
+            </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="rounded-2xl border border-black/10 p-6 shadow-sm">
-            <div className="flex items-center gap-3 text-black/70">
-              <CalendarDays size={20} />
-              <span className="text-sm">Duración</span>
-            </div>
-            <div className="mt-3 text-4xl font-bold">
-              <AnimatedCounter to={2} durationMs={1000} suffix=" años" />
-            </div>
-            <p className="mt-2 text-sm text-black/60">Trabajo continuo con la comunidad.</p>
-          </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="rounded-2xl border border-black/10 p-6 shadow-sm">
+                <div className="flex items-center gap-3 text-black/70">
+                  <CalendarDays size={20} />
+                  <span className="text-sm">Duración</span>
+                </div>
+                <div className="mt-3 text-4xl font-bold">
+                  <AnimatedCounter to={2} durationMs={1000} suffix=" años" />
+                </div>
+                <p className="mt-2 text-sm text-black/60">Trabajo continuo con la comunidad.</p>
+              </div>
 
-          <div className="rounded-2xl border border-black/10 p-6 shadow-sm">
-            <div className="flex items-center gap-3 text-black/70">
-              <Camera size={20} />
-              <span className="text-sm">Fotografías</span>
-            </div>
-            <div className="mt-3 text-4xl font-bold">
-              <AnimatedCounter to={10} durationMs={1500} suffix="+" />
-            </div>
-            <p className="mt-2 text-sm text-black/60">Acumuladas en actividades.</p>
-          </div>
+              <div className="rounded-2xl border border-black/10 p-6 shadow-sm">
+                <div className="flex items-center gap-3 text-black/70">
+                  <Camera size={20} />
+                  <span className="text-sm">Fotografías</span>
+                </div>
+                <div className="mt-3 text-4xl font-bold">
+                  <AnimatedCounter to={10} durationMs={1500} suffix="+" />
+                </div>
+                <p className="mt-2 text-sm text-black/60">Acumuladas en actividades.</p>
+              </div>
 
-          <div className="rounded-2xl border border-black/10 p-6 shadow-sm">
-            <div className="flex items-center gap-3 text-black/70">
-              <Sparkles size={20} />
-              <span className="text-sm">Actividades</span>
+              <div className="rounded-2xl border border-black/10 p-6 shadow-sm">
+                <div className="flex items-center gap-3 text-black/70">
+                  <Computer size={20} />
+                  <span className="text-sm">Herramientas Tecnológicas</span>
+                </div>
+                <div className="mt-3 text-4xl font-bold">
+                  <AnimatedCounter to={6} durationMs={1500} suffix="+" />
+                </div>
+                <p className="mt-2 text-sm text-black/60">Herramientas tecnológicas utilizadas en actividades.</p>
+              </div>
+
+              <div className="rounded-2xl border border-black/10 p-6 shadow-sm">
+                <div className="flex items-center gap-3 text-black/70">
+                  <Sparkles size={20} />
+                  <span className="text-sm">Actividades</span>
+                </div>
+                <div className="mt-3 text-4xl font-bold">
+                  <AnimatedCounter to={10} durationMs={1500} suffix="+" />
+                </div>
+                <p className="mt-2 text-sm text-black/60">Talleres, encuentros y recorridos.</p>
+              </div>
             </div>
-            <div className="mt-3 text-4xl font-bold">
-              <AnimatedCounter to={24} durationMs={1500} suffix="+" />
-            </div>
-            <p className="mt-2 text-sm text-black/60">Talleres, encuentros y recorridos.</p>
           </div>
-        </div>
+        </motion.section>
       </div>
-    </section>
-      </div>
-    </section>
+    </motion.section>
   );
 }

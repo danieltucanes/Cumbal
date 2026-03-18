@@ -11,7 +11,7 @@ export function HistoriaSection() {
     <>
       <ParallaxSection
         image={cumbalImg}
-        heightClass="h-[138vh]"
+        heightClass="h-[170vh]"
         strength={500}
         overlayClass="bg-black/55"
         className="my-0"
@@ -21,7 +21,7 @@ export function HistoriaSection() {
 
             <div className="text-center mb-12">
               <h2
-                className="text-3xl sm:text-4xl mb-4 inline-block"
+                className="font-display text-3xl sm:text-4xl mb-4 inline-block"
                 style={{ color: "white" }}
               >
                 Cumbal
@@ -32,10 +32,7 @@ export function HistoriaSection() {
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               {/* Image */}
               <div className="relative order-2 md:order-1">
-                <div
-                  className="absolute -inset-4 rounded-2xl opacity-10"
-                  style={{ backgroundColor: "var(--deep-green)" }}
-                />
+               
 
                 <div className="relative overflow-hidden rounded-2xl group">
 
@@ -65,9 +62,6 @@ export function HistoriaSection() {
                   <div className="absolute bottom-0 p-5">
                     <p className="text-white font-semibold text-lg drop-shadow">
                       Parroquia San Pedro Apóstol, Cumbal
-                    </p>
-                    <p className="text-white/80 text-sm">
-                      Pasa el cursor para explorar
                     </p>
                   </div>
 
@@ -124,11 +118,7 @@ export function HistoriaSection() {
                 </div>
               </div>
             </div>
-            <iframe
-              src="https://www.google.com/maps?q=Cumbal,Nariño&output=embed"
-              className="w-full h-[400px] rounded-2xl"
-            />
-
+           
           </div>
 
         </section>

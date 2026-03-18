@@ -6,6 +6,7 @@ import { CosmologiaSection } from "./components/cosmologia-section";
 import { ActividadesSection } from "./components/actividades-section";
 import { GaleriaSection } from "./components/galeria-section";
 import { Footer } from "./components/footer";
+import { TecnologiaSection } from "./components/technological-section";
 
 export default function App() {
   return (
@@ -16,7 +17,9 @@ export default function App() {
         <IntroduccionSection />
         <HistoriaSection />
         <CosmologiaSection />
+        <TecnologiaSection/>
         <ActividadesSection />
+        
         <GaleriaSection />
       </main>
       <Footer />
